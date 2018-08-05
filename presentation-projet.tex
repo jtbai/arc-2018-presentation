@@ -1,0 +1,83 @@
+\documentclass[t]{beamer}
+\usefonttheme[onlymath]{serif}
+\usepackage{datetime}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+%\frenchbsetup{CompactItemize=false}
+
+
+% \usepackage[babel]{csquotes}
+% \usepackage[url=false, doi=false, style=science, backend=bibtex, bibencoding=ascii]{biblatex}
+% \bibliography{IEEEabrv,bib/OAM}
+
+  
+\graphicspath{{img/}}
+
+
+\mode<presentation> {
+	% \useoutertheme{infolines} % Pour les thèmes qui n'ont pas de pied-de-page
+	\usetheme{ulaval}
+	%\usecolortheme{ulaval}
+	% \setbeamercovered{transparent}
+	\setbeamercovered{invisible}
+	%\setbeamertemplate{navigation symbols}{} % Enlever les icônes de navigation
+}
+
+
+%\usepackage{bm} 
+% For typesetting bold math (not \mathbold)
+%\includeonlyframes{}
+
+%\usepackage{pgfpages}
+%\setbeameroption{show notes on second screen}
+%\setbeameroption{show notes}
+%\setbeamertemplate{note page}[plain]
+
+\logo{%\includegraphics[height=0.6cm]{COPL}\hspace{.5cm}%
+	\includegraphics[height=0.5cm]{UL_P}\hspace{.2cm}\vspace{.85\paperheight}}
+
+
+\title[Live Textual Data for Risk Selection]{Risk selection using live textual data from the web for commercial underwriting}
+%\subtitle[]{}
+
+%\author[J-T Baillargeon]{Jean-Thomas Baillargeon, FSA, CERA, FICA}
+\institute[Laval University] 
+{
+	École d'actuariat \\
+	Laval University, Québec, Canada \\
+	\medskip
+	{\emph{jean-thomas.baillargeon.1@ulaval.ca}}
+}
+\newdate{presentation-date}{09}{08}{2018}
+\date{\displaydate{presentation-date}} % \today will show current date. 
+% Alternatively, you can specify a date.
+
+
+\AtBeginSection[]{
+  \begin{frame}
+	\Huge \centerline{\insertsection}
+%  \small \tableofcontents[currentsection, hideothersubsections]
+  \end{frame} 
+}
+
+\begin{document}
+
+
+
+\begin{frame}[label=titre, plain]
+	\titlepage
+	\begin{center}%\includegraphics[height=1.2cWm]{COPL}%
+		%\hspace{2cm}
+		\includegraphics[height=2cm]{UL_P}\end{center}
+\end{frame}
+
+\input{introduction}
+\input{methodology}
+
+\bibliographystyle{apalike2}
+\bibliography{ref}
+
+% End of slides
+\end{document}
