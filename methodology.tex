@@ -27,12 +27,12 @@
 		\item Crawler and Scrapers
 		\begin{itemize}
 			\item Mimics the user by browsing without browser
-			\item limitations: user interface design, dynamic rendered content and capcha
+			\item limitations: user interface design and capcha
 		\end{itemize}		
 		\item Application Programming Interface (API)
 		\begin{itemize}
-			\item API based economy
 			\item Communication contract
+			\item API based economy
 		\end{itemize}	
 		\item Extraction Software should support both methods of extraction
 	\end{itemize}	
@@ -45,14 +45,12 @@
 	\textbf{Using Textual Data}
 	\begin{itemize}
 		\item Linking key words to categories 
-		\item Using the dynamic descendent classification framework
+		\item Using the classifier
 	\end{itemize}	
 	
-	\textbf{Dynamic descendent classifier}
+	\textbf{Classifier}
 	\begin{itemize}
 		\item Machine Learning Algorithm trained to predict class based on words
-		\item convert words into numeric vector
-		\item generate a prediction based on the vector's values
 	\end{itemize}	
 	
 \end{frame}
@@ -61,18 +59,16 @@
 \begin{frame}[label=metho]{Methodology}
 	\textbf{Training an algorithm}
 	\begin{itemize}
-		\item Classification is a task requiring supervised learning
+			\item "Calibration"
+		\begin{itemize}
+			
+		\item \textit{learn} the $\beta$ that minimize the Mean Square Error in Linear regression
+			\end{itemize}	
+		
+	
+		\item Classification and Regression Training are supervised learning tasks.
 		\item Requires a set of $N$ example with their good answer
 		\item Calibrate itself to minimize loss function
-	\end{itemize}	
-	
-	\textbf{Algorithm Trained by Supervised Learning}
-	\begin{itemize}
-		\item Be $\boldmath{X}$ a $N\times M$ matrix, with $N$ the number of example and $M$ features
-		\item Be $\boldmath{Y}$ a $N\times1$ column vector, containing the associated values of the $N$ examples
-		\item Let the algorithm \textit{learn} the $\beta$ that minimize the Mean Square Error in 
-		$$ \boldmath{Y} = \beta\boldmath{X} $$
-		\item Arguably, the $\boldmath{\beta}$ are obtained with the Maximum Likely Hood estimators
 	\end{itemize}	
 	
 \end{frame}
@@ -96,7 +92,7 @@
 \begin{frame}[label=metho]{Methodology}
 	\textbf{Not Using Big Data in Machine Learning}
 	\begin{itemize}
-		\item Unrelated, yet linked concept
+		\item Very different, yet linked concept
 		\item Machine Learning is the concept of training algoritmm for specific task
 		\item Big Data refers to Data with usage problem due to the 4Vs
 		\begin{itemize}
@@ -141,6 +137,25 @@
 
 \begin{frame}[label=metho]{Methodology}
 	\textbf{Occurence Matrix Example}
+	
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline 
+			&  broker  & for & hamburger & ... & zebra   \\ 
+			\hline 
+			Document 1 &    1 & 1 & 0 & ... & 0  \\ 
+			\hline 
+			Document 2&    0 & 1 & 1 & ... & 1 \\ 
+			\hline 
+			Document 3 &    0 & 1 & 0 & ... & 1  \\ 
+			\hline 
+			
+		\end{tabular} 
+		
+	\end{table}
+	
 \end{frame}
 
 \begin{frame}[label=metho]{Methodology}
@@ -182,38 +197,90 @@
 		\item Classification task wants to maximise discrimination between $k$ classes.
 		\item Add weigth to token that are usefull
 		\item Remove weigth to token that are useless
-		\item Metrics for usefulness
-		\begin{itemize}
-			\item Term-Frequence \ Inverse-Document-Frequency (TF/IDF)
-			\item Bi-Normal Separation (BNS)
-		\end{itemize}
+		
 	\end{itemize}
 \end{frame}
 
 
+
 \begin{frame}[label=metho]{Methodology}
-	\textbf{Document-Frequencty / Inverse-Document-Frequency}
+	\textbf{Matrix Transformation Example}
+	
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline 
+			&  broker  & for & hamburger & ... & zebra   \\ 
+			\hline 
+			Document 1 &    1\textbf{(+)} & 1\textbf{(- -)} & 0 & ... & 0  \\ 
+			\hline 
+			Document 2&    0 &  1 \textbf{(- -)}& 1 \textbf{(+)} & ... & 1\textbf{(-)} \\ 
+			\hline 
+			Document 3 &    0 & 1 \textbf{(- -)} & 0 & ... & 1\textbf{(-)}  \\ 
+			\hline 
+			
+		\end{tabular} 
+		
+	\end{table}
+	
+\begin{itemize}
+	\item Metrics for usefulness
+	\begin{itemize}
+		\item Term-Frequence \ Inverse-Document-Frequency (TF/IDF)
+		\item Bi-Normal Separation (BNS)
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[label=metho]{Methodology}
+	\textbf{Term-Frequencty / Inverse-Document-Frequency (TF/IDF)}
 	\begin{itemize}
 		\item Intuition
 		\begin{itemize}
 			\item Useless Word that do not carry meaning would appear in any document, regardless the category
 			\item Usefull Domain related word should occur often in a document
 		\end{itemize}
-		\item formula here
-	\end{itemize}
+		\item Formula
+\end{itemize}
+$$ \textrm{tf-idf} = tf(w_i,d_j) \cdot idf(w_i, D)$$
+$$tf(i, j) = 0.5 + 0.5 \times \frac{\textrm{count}(w_i, d_j)}{|d_j|}  $$
+$$idf(i, D) = \log \frac{|D|}{|\{d \in D :  w_i \in d \}|}$$
+
 \end{frame}
 
 
 \begin{frame}[label=metho]{Methodology}
-	\textbf{Bi-Normal Separation}
+	\textbf{Bi-Normal Separation (BNS)}
 	\begin{itemize}
+				\item Presented in \cite{Forman}
 		\item Intuition
 		\begin{itemize}
 			\item Words that occurs only in documents of a single category are usefull
 			\item Words occuring randomly in documents are useless
 		\end{itemize}
-			\item formula here
 	\end{itemize}
+		\begin{table}[H]
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline 
+			& $C_k$&  broker  & for & hamburger & ... & zebra   \\ 
+			\hline 
+			Document 1 &  Insurance &  1 (+) & 1(- -) & 0 & ... & 0 \\ 
+			\hline 
+			Document 2& Zoo &   0 &  1 (- -) & 1 (+) & ... & 1\textbf{(+)} \\ 
+			\hline 
+			Document 3 & Zoo &  0 & 1 (- -) & 0 & ... & 1\textbf{(+)}  \\ 
+			\hline 
+			
+		\end{tabular} 
+		
+	\end{table}
+\begin{itemize}
+		\item Formula
+\end{itemize}
+$$BNS = abs(\Phi^{-1}(TPR(w_i, D))- \Phi^{-1}(TNR(w_i, D)))$$
+
 \end{frame}
 
 
@@ -221,18 +288,19 @@
 
 	\textbf{True Positive Rate (TPR), False Positive Rate (FPR)}
 	\begin{itemize}
-		\item Example: $k=2$ classes, $N$ documents of known but hidden category
-	\end{itemize}
+		\item Example: 10 documents of known but hidden category, 2 cagories.
+		\item Guess class $C_1$ for document $d_i, i = 1,...,N$ if $w_1$ is present.	
+\end{itemize}
 
 			\includegraphics[width=\textwidth]{images/TPRFPR_example.png}
 
 	\begin{itemize}
-		\item Guess class $C_1$ for document $d_i, i = 1,...,N$ if $w_1$ is present.
-			\item Amongs $n$ guessed docuement:
+		
+			\item Amongs the guessed docuement:
 		\begin{itemize}
 
-			\item \textbf{TPR} = number of documents $d$ that really belong to $C_1$ / the real number of documents belonging to $C_1$
-			\item \textbf{FPR} = number of documents $d$ that do not belong to $C_1$ / the real number of documents not belonging to $C_1$
+			\item \textbf{TPR} = $\frac{\textrm{Number of documents that really belongs to } C_1}{\textrm{Total number of documents belonging to } C_1} $
+			\item \textbf{FPR} = $\frac{\textrm{Number of documents that do not belongs to } C_1}{\textrm{Total number of documents not belonging to } C_1} $
 		\end{itemize}
 	\end{itemize}
 
@@ -277,7 +345,7 @@
 		\item Algorithms for classification
 		\begin{itemize}
 			\item Naive Bayes Classifier, Logistic Regression
-			\item Support Vector Machine (SVM), Neural Network (DL)
+			\item Support Vector Machine (SVM), Deep Neural Network (DL)
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -287,11 +355,11 @@
 	\textbf{Naive Bayes Classifier}
 	\begin{itemize}
 		\item Very useful baseline algorithm
-		\item Strong Hypothesis, but okay in NLP
+		\item Strong Hypothesis, but very okay in NLP
 		\item Given the class of the document, all features are independant
 		\item Prediction formula
-		$$\hat{y} = \arg\max P(C_k) \prod_{n}^{i=1}p(x_i|C_k)$$
-		\item Where \textit{a posteriori} probabilities have been learned using the moment estimators
+		$$\hat{y} = \arg\max P(C_k) \prod_{i=1}^{N}p(x_i|C_k)$$
+		\item Where \textit{a posteriori} probabilities have been learned using the maximul likelyhood estimators.
 		
 	\end{itemize}
 	
@@ -310,7 +378,7 @@
 $$ \hat{y} = \arg\max \beta_{K0} + \boldsymbol{\beta_{K}^T} \cdot  \boldsymbol{x} , $$
 		\item Where the parameters have been learned by maximizing the likelihood score
 
-	$$  l(\beta) = \sum_{N}^{i=1} y_i \beta^T x_i - \log(1+ e^{B^T x_i}) $$
+	$$  l(\beta) = \sum_{i=1}^{N} y_i \beta^T x_i - \log(1+ e^{\beta^T x_i}) $$
 		
 	\end{itemize}
 \end{frame}

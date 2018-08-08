@@ -1,3 +1,8 @@
 \begin{thebibliography}{}
 
+\bibitem[Forman, ]{Forman}
+Forman, G.
+\newblock {BNS Feature Scaling: An Improved Representation over
+  TF{\textperiodcentered}IDF for SVM Text Classification}.
+
 \end{thebibliography}
