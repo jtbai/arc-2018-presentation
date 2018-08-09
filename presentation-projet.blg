@@ -5,45 +5,45 @@ The style file: apalike2.bst
 Database file #1: ref.bib
 Warning--empty year in Forman
 Warning--empty journal in Forman
-You've used 1 entry,
+You've used 5 entries,
             2229 wiz_defined-function locations,
-            515 strings with 4117 characters,
-and the built_in function-call counts, 279 in all, are:
-= -- 24
-> -- 7
-< -- 1
-+ -- 2
-- -- 2
-* -- 16
-:= -- 56
-add.period$ -- 2
-call.type$ -- 1
-change.case$ -- 6
-chr.to.int$ -- 1
-cite$ -- 3
-duplicate$ -- 13
-empty$ -- 21
-format.name$ -- 3
-if$ -- 50
+            540 strings with 4821 characters,
+and the built_in function-call counts, 1780 in all, are:
+= -- 170
+> -- 58
+< -- 6
++ -- 20
+- -- 18
+* -- 123
+:= -- 308
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 32
+chr.to.int$ -- 5
+cite$ -- 7
+duplicate$ -- 87
+empty$ -- 137
+format.name$ -- 27
+if$ -- 362
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 1
-newline$ -- 7
-num.names$ -- 3
-pop$ -- 9
+missing$ -- 7
+newline$ -- 27
+num.names$ -- 15
+pop$ -- 47
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 34
 quote$ -- 0
-skip$ -- 10
+skip$ -- 60
 stack$ -- 0
-substring$ -- 12
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 88
+swap$ -- 14
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 6
+type$ -- 26
 warning$ -- 2
-while$ -- 2
+while$ -- 14
 width$ -- 0
-write$ -- 11
+write$ -- 62
 (There were 2 warnings)

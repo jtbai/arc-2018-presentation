@@ -3,18 +3,18 @@
 	\textbf{And then}
 	
 	\begin{itemize}
-	\item Evaluate the accuracy of the prediction algorithm.
-	\item Replicate the calling process, by:
+	\item Evaluate the accuracy of the predictions
+	\item Replicate the calling process
 		\begin{itemize}
-			\item Holding back one data point
-			\item Training the system with $N-1$ data points
-			\item Predicting the holded back data Point Occupancy Code
-			\item Cycling through all data points, to get average prediction accuracy
+			\item Hold back one data point
+			\item Train the system with $N-1$ data points
+			\item Predict the company occupation code of the holded-back data point
+			\item Cycle through all data points, to get average prediction accuracy
 		\end{itemize}
 	\item Use accuracy evaluation to compare
 		\begin{itemize}
-			\item a dummy classifier and traditional NLP elements
-			\item Traditional NLP metrics and the improvements from this project's work
+			\item A dummy classifier and traditional NLP elements
+			\item Traditional NLP elements and the improvements from this project's work
 		\end{itemize}
 	\end{itemize}
 	
@@ -25,8 +25,8 @@
 	
 	\begin{itemize}
 		\item Data from Yellow Pages
-		\item Graduately gather over a 10 day period
 		\item Counting 1593 data points
+		\item Graduatly gather over a 10 day period
 	\end{itemize}
 	
 \end{frame}
@@ -34,12 +34,12 @@
 
 
 \begin{frame}[label=exp]{Experimentation}
-	\textbf{the Dummy Classifier Performance}
+	\textbf{The Dummy Classifier Performance}
 	
 	\begin{itemize}
 		\item Define the dummy classifier 
 		\begin{itemize}
-			\item Classifier that would always select the class
+			\item Classifier that would always predict the same thing \item The category with the greater number of example (majority class)
 		\end{itemize}
 		
 	\end{itemize}
@@ -61,7 +61,7 @@
 
 \begin{frame}[label=exp]{Experimentation}
 	\begin{figure}
-		\caption{Dummy Classifier vs Traditionnal NLP}
+		\caption{Traditionnal NLP vs Project Proposal}
 		\centering
 		\makebox[\textwidth]{\includegraphics[width=0.7\textwidth, height=0.7\textheight]{images/nlp_vs_project.png}}
 	\end{figure}

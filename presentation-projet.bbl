@@ -5,4 +5,26 @@ Forman, G.
 \newblock {BNS Feature Scaling: An Improved Representation over
   TF{\textperiodcentered}IDF for SVM Text Classification}.
 
+\bibitem[Francis \& Flynn, 2010]{francis2010text}
+Francis, L. \& Flynn, M. (2010).
+\newblock Text mining handbook.
+\newblock In {\em Casualty Actuarial Society E-Forum}  (pp.\~1).
+
+\bibitem[Francis, 2006]{Francis2006}
+Francis, L.~A. (2006).
+\newblock {Taming Text: An Introduction to Text Mining}.
+\newblock In {\em Casualty Actuarial Society Forum}  (pp.\ 51--88).
+
+\bibitem[Hastie et~al., 2013]{hastie2013elements}
+Hastie, T., Tibshirani, R., \& Friedman, J. (2013).
+\newblock {\em The Elements of Statistical Learning: Data Mining, Inference,
+  and Prediction}.
+\newblock Springer Series in Statistics. Springer New York.
+
+\bibitem[Jurafsky \& Martin, 2009]{jurafsky2009speech}
+Jurafsky, D. \& Martin, J.~H. (2009).
+\newblock {\em Speech and language processing: An introduction to natural
+  language processing, computational linguistics, and speech recognition}.
+\newblock Prentice Hall, Pearson Education International.
+
 \end{thebibliography}

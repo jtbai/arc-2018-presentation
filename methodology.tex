@@ -27,12 +27,13 @@
 		\item Crawler and Scrapers
 		\begin{itemize}
 			\item Mimics the user by browsing without browser
-			\item limitations: user interface design and capcha
+			\item Limitations: user interface design and capcha
 		\end{itemize}		
 		\item Application Programming Interface (API)
 		\begin{itemize}
 			\item Communication contract
-			\item API based economy
+			\item Controlled acces point to the data\\
+			\item Limitations: might not be free
 		\end{itemize}	
 		\item Extraction Software should support both methods of extraction
 	\end{itemize}	
@@ -50,7 +51,7 @@
 	
 	\textbf{Classifier}
 	\begin{itemize}
-		\item Machine Learning Algorithm trained to predict class based on words
+		\item Machine learning algorithm trained to predict class based on words
 	\end{itemize}	
 	
 \end{frame}
@@ -59,15 +60,13 @@
 \begin{frame}[label=metho]{Methodology}
 	\textbf{Training an algorithm}
 	\begin{itemize}
-			\item "Calibration"
+			\item Fitting a model or calibration
 		\begin{itemize}
-			
-		\item \textit{learn} the $\beta$ that minimize the Mean Square Error in Linear regression
+		\item \textit{Train} linear regression to predict a value using a vector of numeric variables
+		\item \textit{Learn} the $\beta$ that minimize the Mean Square Error in Linear regression
 			\end{itemize}	
-		
-	
-		\item Classification and Regression Training are supervised learning tasks.
-		\item Requires a set of $N$ example with their good answer
+		\item Classification and regression are supervised learning tasks
+		\item Requires a set of $N$ examples with their good answer
 		\item Calibrate itself to minimize loss function
 	\end{itemize}	
 	
@@ -82,8 +81,8 @@
 			\item Linking a company occupancy code, as defined by a classification scheme
 			\item To keywords extracted from a source
 		\end{itemize}	
-		\item The Dataset is source specific
-		\item Small to Medium Data
+		\item The dataset is source specific
+		\item Small to medium data
 	
 	\end{itemize}	
 \end{frame}
@@ -96,7 +95,7 @@
 		\item Machine Learning is the concept of training algoritmm for specific task
 		\item Big Data refers to Data with usage problem due to the 4Vs
 		\begin{itemize}
-			\item However, value locked in big data can be accessed using Machine Learning
+			\item However, certain machine learning algorithms, apt to use big data, became incresingly efficient with the amount of data processed.
 		\end{itemize}	
 	\end{itemize}
 \end{frame}
@@ -107,7 +106,7 @@
 	\begin{itemize}
 		\item Not directly usable by machine learning algorithms
 		\item NLP solves this problem
-		\item Text Mining Software implements NLP findings
+		\item Text mining software presented in \cite{francis2010text} implements NLP findings
 		\item Change a few blocs beneath the hood
 		\item NLP Classification Pipeline
 		\begin{itemize}
@@ -124,11 +123,7 @@
 	\begin{itemize}
 		\item Split each document $d_i, i \in(1, N)$ into tokens $w_j, j \in (1, M) $ 
 		\item In its most basic form, tokens generated $w_j$ are words
-		\item Create a bag of words
-		\begin{itemize}
-			\item With the $J$ distinct tokens contained in the $N$ documents forming the corpus $D$
-		\end{itemize}
-		\item Creates an occurence matrix $S, N \times M$ with elements
+		\item Creates a term occurence matrix $S, N \times M$ with elements
 		$$ s_{i,j} = 1 \textrm{ if } w_j \in d_i, 0 \textrm{ otherwise}$$
 	\end{itemize}
 \end{frame}
@@ -136,7 +131,7 @@
 
 
 \begin{frame}[label=metho]{Methodology}
-	\textbf{Occurence Matrix Example}
+	\textbf{Term Occurence Matrix Example}
 	
 	
 	\begin{table}[H]
@@ -158,45 +153,14 @@
 	
 \end{frame}
 
-\begin{frame}[label=metho]{Methodology}
-	\textbf{Additional Tokenization Steps}
-	\begin{itemize}
-		\item Normalization
-		\begin{itemize}
-			\item Common writing for "same" word
-			\item Restaurant vs Restaurants
-		\end{itemize}
-		
-		\item StopWords
-		\begin{itemize}
-			\item Words that have no particular meaning
-			\item I, if, then,...
-		\end{itemize}
-		
-		\item N-Grams
-		\begin{itemize}
-			\item Combining consecutive n-tokens for additionnal meaning
-			\item the tokens Machine and Learning vs the token Machine Learning
-		\end{itemize}
-		
-		\item Part-Of-Speach Tagging
-		\begin{itemize}
-			\item Adding the syntaxic group to a words to remove ambiguity
-			\item Live (verb) vs Live (adjective)
-		\end{itemize}
-		
-	\end{itemize}
-\end{frame}
-
-
 
 \begin{frame}[label=metho]{Methodology}
 	\textbf{Transformation Step}
 	\begin{itemize}
-		\item Adjust weigth for word relevance in the current task
-		\item Classification task wants to maximise discrimination between $k$ classes.
-		\item Add weigth to token that are usefull
-		\item Remove weigth to token that are useless
+		\item Adjust weight for word relevance in the current task
+		\item Classification task wants to maximize discrimination between $k$ classes.
+		\item Add weight to tokens that are useful
+		\item Remove weight to tokens that are useless
 		
 	\end{itemize}
 \end{frame}
@@ -227,7 +191,7 @@
 \begin{itemize}
 	\item Metrics for usefulness
 	\begin{itemize}
-		\item Term-Frequence \ Inverse-Document-Frequency (TF/IDF)
+		\item Term Frequency - Inverse Document Frequency (TF-IDF) \cite{Francis2006}, \cite{jurafsky2009speech}
 		\item Bi-Normal Separation (BNS)
 	\end{itemize}
 \end{itemize}
@@ -235,12 +199,12 @@
 \end{frame}
 
 \begin{frame}[label=metho]{Methodology}
-	\textbf{Term-Frequencty / Inverse-Document-Frequency (TF/IDF)}
+	\textbf{Term Frequency - Inverse Document Frequency (TF-IDF)}
 	\begin{itemize}
 		\item Intuition
 		\begin{itemize}
 			\item Useless Word that do not carry meaning would appear in any document, regardless the category
-			\item Usefull Domain related word should occur often in a document
+			\item Useful domain related word should occur often in a document
 		\end{itemize}
 		\item Formula
 \end{itemize}
@@ -257,7 +221,7 @@ $$idf(i, D) = \log \frac{|D|}{|\{d \in D :  w_i \in d \}|}$$
 				\item Presented in \cite{Forman}
 		\item Intuition
 		\begin{itemize}
-			\item Words that occurs only in documents of a single category are usefull
+			\item Words that occurs only in documents of a single category are useful
 			\item Words occuring randomly in documents are useless
 		\end{itemize}
 	\end{itemize}
@@ -299,8 +263,8 @@ $$BNS = abs(\Phi^{-1}(TPR(w_i, D))- \Phi^{-1}(TNR(w_i, D)))$$
 			\item Amongs the guessed docuement:
 		\begin{itemize}
 
-			\item \textbf{TPR} = $\frac{\textrm{Number of documents that really belongs to } C_1}{\textrm{Total number of documents belonging to } C_1} $
-			\item \textbf{FPR} = $\frac{\textrm{Number of documents that do not belongs to } C_1}{\textrm{Total number of documents not belonging to } C_1} $
+			\item \textbf{TPR} = $\frac{\textrm{Number of documents that really belong to } C_1}{\textrm{Total number of documents belonging to } C_1} $
+			\item \textbf{FPR} = $\frac{\textrm{Number of documents that do not belong to } C_1}{\textrm{Total number of documents not belonging to } C_1} $
 		\end{itemize}
 	\end{itemize}
 
@@ -313,15 +277,13 @@ $$BNS = abs(\Phi^{-1}(TPR(w_i, D))- \Phi^{-1}(TNR(w_i, D)))$$
 		\begin{itemize}
 		\item Given TPR = $\frac{3}{4}$ and FPR = $\frac{1}{6}$
 			\begin{itemize}
-				\item Very usefull word
-				\item $\textrm{abs}(\Phi^{-1}(\frac{3}{4}) - \Phi^{-1}(\frac{1}{6}) ) > 1$ 
-				\item Absolute value usefull for enhancing word that are uncorrelated
-				\item $C_1$ and $C_2$ are somewhat arbitraty
+				\item Very useful word
+				\item $\textrm{abs}(\Phi^{-1}(\frac{3}{4}) - \Phi^{-1}(\frac{1}{6}) ) = 1.64$ 
 			\end{itemize}
-		\item Given TPR = 0.50 and FPR = 0.50
+		\item Given TPR = $\frac{1}{2}$  and FPR = $\frac{1}{2}$
 		\begin{itemize}
 			\item Very useless word
-			\item $\textrm{abs}(\Phi^{-1}(0.50) - \Phi^{-1}(0.50) ) = 0$ 
+			\item $\textrm{abs}(\Phi^{-1}(\frac{1}{2}) - \Phi^{-1}(\frac{1}{2}) ) = 0$ 
 		\end{itemize}
 	
 	\end{itemize}
@@ -331,7 +293,7 @@ $$BNS = abs(\Phi^{-1}(TPR(w_i, D))- \Phi^{-1}(TNR(w_i, D)))$$
 	\textbf{Bi-Normal Separation}
 	\begin{itemize}
 		\item Limited to 2 classes (binary classification)
-		\item Generalized to $n>2$ classes in this project
+		\item Generalized to $n \geq 2$ classes in this project
 	\end{itemize}
 \end{frame}
 
@@ -340,7 +302,7 @@ $$BNS = abs(\Phi^{-1}(TPR(w_i, D))- \Phi^{-1}(TNR(w_i, D)))$$
 	\textbf{Classification Step}
 	\begin{itemize}
 		\item The actual machine learning algorithm
-		\item Prior steps are mendatory preprocessing
+		\item Prior steps are mandatory preprocessing
 		\item Data in matricial form $\boldmath{X}, \boldmath{Y}$ 
 		\item Algorithms for classification
 		\begin{itemize}
@@ -354,12 +316,12 @@ $$BNS = abs(\Phi^{-1}(TPR(w_i, D))- \Phi^{-1}(TNR(w_i, D)))$$
 \begin{frame}[label=metho]{Methodology}
 	\textbf{Naive Bayes Classifier}
 	\begin{itemize}
+		\item Strong Hypothesis
 		\item Very useful baseline algorithm
-		\item Strong Hypothesis, but very okay in NLP
 		\item Given the class of the document, all features are independant
 		\item Prediction formula
 		$$\hat{y} = \arg\max P(C_k) \prod_{i=1}^{N}p(x_i|C_k)$$
-		\item Where \textit{a posteriori} probabilities have been learned using the maximul likelyhood estimators.
+		\item Where \textit{a posteriori} probabilities have been \textit{learned} using the maximum likelyhood estimators.
 		
 	\end{itemize}
 	
@@ -373,7 +335,8 @@ $$BNS = abs(\Phi^{-1}(TPR(w_i, D))- \Phi^{-1}(TNR(w_i, D)))$$
 \begin{frame}[label=metho]{Methodology}
 	\textbf{Logistic Classifier}
 	\begin{itemize}
-		\item A Stronger prediction algorithm, liberalized it's formula
+		\item A stronger prediction algorithm, 
+		\item Liberalized formula \cite{hastie2013elements}
 		\item Prediction formula
 $$ \hat{y} = \arg\max \beta_{K0} + \boldsymbol{\beta_{K}^T} \cdot  \boldsymbol{x} , $$
 		\item Where the parameters have been learned by maximizing the likelihood score
@@ -388,7 +351,7 @@ $$ \hat{y} = \arg\max \beta_{K0} + \boldsymbol{\beta_{K}^T} \cdot  \boldsymbol{x
 	\begin{itemize}
 		\item Surprise, no usage in this project
 		\item More a proof of concept than an optimal implementation
-		\item More black box and less room for digging in the depth of the data
+		\item Black box approach and little room for diagnosis
 		\item Questionable appropriateness
 	\end{itemize}
 \end{frame}
@@ -397,7 +360,7 @@ $$ \hat{y} = \arg\max \beta_{K0} + \boldsymbol{\beta_{K}^T} \cdot  \boldsymbol{x
 \begin{frame}[label=metho]{Methodology}
 	\textbf{Choosing Between Many Categories}
 	\begin{itemize}
-		\item The classification Scheme has $K \geq 200$ classes.
+		\item The classification scheme has $K \geq 200$ classes.
 	\end{itemize}
 
 \includegraphics[width=\textwidth]{images/bottom_level.png}
@@ -405,8 +368,8 @@ $$ \hat{y} = \arg\max \beta_{K0} + \boldsymbol{\beta_{K}^T} \cdot  \boldsymbol{x
 	\begin{itemize}
 	\item Example of classification
 \begin{itemize}
-	\item Restaurant - No Alcohol - Fastfood
-	\item Restaurant - Alcohol - Steakhouse
+	\item Restaurant - Not Full Licence - Fastfood
+	\item Restaurant - Full Licence - Steakhouse
 	\item Service - Finance - Accounting
 \end{itemize}
 \end{itemize}
